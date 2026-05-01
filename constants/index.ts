@@ -61,7 +61,7 @@ export const topCategoryStyles = {
       bg: "bg-blue-100",
       indicator: "bg-blue-700",
     },
-    icon: "/icons/monitor.svg",
+    icon: "/icons/a-coffee.svg",
   },
   Travel: {
     bg: "bg-success-25",
@@ -76,7 +76,59 @@ export const topCategoryStyles = {
     },
     icon: "/icons/coins.svg",
   },
-  default: {
+  Payment: {
+    bg: "bg-green-50",
+    circleBg: "bg-green-100",
+    text: {
+      main: "text-green-900",
+      count: "text-green-700",
+    },
+    progress: {
+      bg: "bg-green-100",
+      indicator: "bg-green-700",
+    },
+    icon: "/icons/dollar-circle.svg",
+  },
+  Transfer: {
+    bg: "bg-yellow-50",
+    circleBg: "bg-yellow-100",
+    text: {
+      main: "text-yellow-900",
+      count: "text-yellow-700",
+    },
+    progress: {
+      bg: "bg-yellow-100",
+      indicator: "bg-yellow-700",
+    },
+    icon: "/icons/bank-transfer.svg",
+  },
+  Recreation: {
+    bg: "bg-red-50",
+    circleBg: "bg-red-100",
+    text: {
+      main: "text-red-900",
+      count: "text-red-700",
+    },
+    progress: {
+      bg: "bg-red-100",
+      indicator: "bg-red-700",
+    },
+    icon: "/icons/monitor.svg",
+  },
+  Service: {
+    bg: "bg-purple-50",
+    circleBg: "bg-purple-100",
+    text: {
+      main: "text-purple-900",
+      count: "text-purple-700",
+    },
+    progress: {
+      bg: "bg-purple-100",
+      indicator: "bg-purple-700",
+    },
+    icon: "/icons/credit-card.svg",
+  },
+  Shops: {
     bg: "bg-pink-25",
     circleBg: "bg-pink-100",
     text: {
@@ -86,6 +138,58 @@ export const topCategoryStyles = {
     progress: {
       bg: "bg-pink-100",
       indicator: "bg-pink-700",
+    },
+    icon: "/icons/shopping-bag.svg",
+  },
+  "Bank Fees": {
+    bg: "bg-orange-50",
+    circleBg: "bg-orange-100",
+    text: {
+      main: "text-orange-900",
+      count: "text-orange-700",
+    },
+    progress: {
+      bg: "bg-orange-100",
+      indicator: "bg-orange-700",
+    },
+    icon: "/icons/dollar.svg",
+  },
+  Healthcare: {
+    bg: "bg-teal-50",
+    circleBg: "bg-teal-100",
+    text: {
+      main: "text-teal-900",
+      count: "text-teal-700",
+    },
+    progress: {
+      bg: "bg-teal-100",
+      indicator: "bg-teal-700",
+    },
+    icon: "/icons/fresh-fv.svg",
+  },
+  Community: {
+    bg: "bg-indigo-50",
+    circleBg: "bg-indigo-100",
+    text: {
+      main: "text-indigo-900",
+      count: "text-indigo-700",
+    },
+    progress: {
+      bg: "bg-indigo-100",
+      indicator: "bg-indigo-700",
+    },
+    icon: "/icons/home.svg",
+  },
+  default: {
+    bg: "bg-gray-25",
+    circleBg: "bg-gray-200",
+    text: {
+      main: "text-gray-900",
+      count: "text-gray-700",
+    },
+    progress: {
+      bg: "bg-gray-200",
+      indicator: "bg-gray-700",
     },
     icon: "/icons/shopping-bag.svg",
   },

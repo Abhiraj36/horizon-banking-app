@@ -17,7 +17,19 @@ const Home = async ({ searchParams: { id, page } }: SearchParamProps) => {
   const accountsData = accounts?.data;
   const appwriteItemId = (id as string) || accountsData[0]?.appwriteItemId;
 
-  const account = await getAccount({ appwriteItemId })
+  const allAccountResults = await Promise.all(
+    (accountsData ?? []).map((acc: Account) =>
+      getAccount({ appwriteItemId: acc.appwriteItemId })
+    )
+  );
+
+  const allTransactions = allAccountResults
+    .flatMap((r) => r?.transactions ?? [])
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+  const account = allAccountResults.find(
+    (r) => r?.data?.appwriteItemId === appwriteItemId
+  ) ?? allAccountResults[0];
 
   return (
     <section className="home">
@@ -45,9 +57,9 @@ const Home = async ({ searchParams: { id, page } }: SearchParamProps) => {
         />
       </div>
 
-      <RightSidebar 
+      <RightSidebar
         user={loggedIn}
-        transactions={account?.transactions}
+        transactions={allTransactions}
         banks={accountsData?.slice(0, 2)}
       />
     </section>

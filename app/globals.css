@@ -326,7 +326,7 @@
 
   /* Root Layout */
   .root-layout {
-    @apply flex h-16 items-center justify-between p-5 shadow-creditCard sm:p-8 md:hidden;
+    @apply flex h-16 items-center justify-between p-5 shadow-creditCard sm:p-8 md:py-3;
   }
 
   /* Bank Info */
@@ -375,4 +375,74 @@
   .sidebar-label {
     @apply text-16 font-semibold text-black-2 max-xl:hidden;
   }
-} 
+}
+
+/* === Dark mode overrides ===
+   Path C: high-impact surfaces only. Many smaller elements (form inputs,
+   chart legends, hover states) will look approximate in dark mode. */
+.dark body {
+  background-color: #0b0f17;
+  color: #e5e7eb;
+}
+
+.dark .root-layout {
+  background-color: #111827;
+  border-bottom: 1px solid #1f2937;
+}
+
+.dark .home,
+.dark .home-content,
+.dark .my-banks,
+.dark .transactions {
+  background-color: #0b0f17;
+}
+
+.dark .right-sidebar,
+.dark aside,
+.dark .sidebar {
+  background-color: #111827;
+  border-color: #1f2937;
+}
+
+.dark .total-balance,
+.dark .bank-info,
+.dark .recent-transactions {
+  background-color: #111827;
+  border-color: #1f2937;
+}
+
+.dark .header-box-title,
+.dark .total-balance-amount,
+.dark .recent-transactions-label,
+.dark .profile-name,
+.dark .header-2 {
+  color: #f3f4f6;
+}
+
+.dark .header-box-subtext,
+.dark .total-balance-label,
+.dark .profile-email {
+  color: #9ca3af;
+}
+
+/* Catch-all utility overrides for the gray ramp that's used everywhere */
+.dark .text-gray-900 { color: #f3f4f6; }
+.dark .text-gray-700 { color: #d1d5db; }
+.dark .text-gray-600 { color: #9ca3af; }
+.dark .text-gray-500 { color: #9ca3af; }
+.dark .text-black-1,
+.dark .text-black-2 { color: #e5e7eb; }
+
+.dark .bg-white { background-color: #111827; }
+.dark .bg-gray-25 { background-color: #0b0f17; }
+.dark .bg-gray-100 { background-color: #1f2937; }
+
+.dark .border-gray-200,
+.dark .border-gray-300 { border-color: #1f2937; }
+
+/* Inputs / form fields */
+.dark .input-class {
+  background-color: #111827;
+  border-color: #1f2937;
+  color: #f3f4f6;
+}
