@@ -81,17 +81,7 @@ export const signUp = async ({ password, ...userData }: SignUpParams) => {
     const dwollaCustomerId = extractCustomerIdFromUrl(dwollaCustomerUrl);
     // =========================
 
-   const newUser = await database.createDocument(
-      DATABASE_ID!,
-      USER_COLLECTION_ID!,
-      ID.unique(),
-      {
-        ...userData,
-        userId: newUserAccount.$id,
-        dwollaCustomerId,  // <-- Swapped back to actual variable
-        dwollaCustomerUrl, // <-- Swapped back to actual variable
-      }
-    )
+
 
    const newUser = await database.createDocument(
       DATABASE_ID!,
@@ -174,7 +164,7 @@ export const createBankAccount = async ({
   accountId,
   accessToken,
   fundingSourceUrl,
-  shareableId,
+  sharableId,
 }: createBankAccountProps) => {
   try {
     const { database } = await createAdminClient();
@@ -189,7 +179,7 @@ export const createBankAccount = async ({
         accountId,
         accessToken,
         fundingSourceUrl,
-        shareableId,
+        sharableId,
       }
     )
 
@@ -246,7 +236,7 @@ export const exchangePublicToken = async ({
       accountId: accountData.account_id,
       accessToken,
       fundingSourceUrl,
-      shareableId: encryptId(accountData.account_id),
+      sharableId: encryptId(accountData.account_id),
     });
 
     // Revalidate the path to reflect the changes
