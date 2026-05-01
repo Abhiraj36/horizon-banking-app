@@ -6,7 +6,7 @@ import { cookies } from "next/headers";
 import { encryptId, extractCustomerIdFromUrl, parseStringify } from "../utils";
 import { CountryCode, ProcessorTokenCreateRequest, ProcessorTokenCreateRequestProcessorEnum, Products } from "plaid";
 
-//import { plaidClient } from '@/lib/plaid';
+import { plaidClient } from '@/lib/plaid';
 import { revalidatePath } from "next/cache";
 import { addFundingSource, createDwollaCustomer } from "./dwolla.actions";
 
@@ -70,8 +70,7 @@ export const signUp = async ({ password, ...userData }: SignUpParams) => {
 
     if(!newUserAccount) throw new Error('Error creating user')
 
-    // === TEMPORARILY DISABLED DWOLLA ===
-    /*
+  // === DWOLLA RE-ENABLED ===
     const dwollaCustomerUrl = await createDwollaCustomer({
       ...userData,
       type: 'personal'
@@ -80,8 +79,19 @@ export const signUp = async ({ password, ...userData }: SignUpParams) => {
     if(!dwollaCustomerUrl) throw new Error('Error creating Dwolla customer')
 
     const dwollaCustomerId = extractCustomerIdFromUrl(dwollaCustomerUrl);
-    */
-    // ===================================
+    // =========================
+
+   const newUser = await database.createDocument(
+      DATABASE_ID!,
+      USER_COLLECTION_ID!,
+      ID.unique(),
+      {
+        ...userData,
+        userId: newUserAccount.$id,
+        dwollaCustomerId,  // <-- Swapped back to actual variable
+        dwollaCustomerUrl, // <-- Swapped back to actual variable
+      }
+    )
 
    const newUser = await database.createDocument(
       DATABASE_ID!,
